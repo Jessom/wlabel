@@ -1,0 +1,51 @@
+:root {
+  /* 文本色 */
+  --text-color-1: #222222; /* 主要文字 */
+  --text-color-2: #333333; /* 重要文字，用于NavBar等大标题 */
+  --text-color-3: #666666; /* 普通文字，用于段落、表单标题、列表内容等 */
+  --text-color-4: #999999; /* 辅助文字，用于次要信息 */
+  --text-color-5: #CCCCCC; /* 一般文字，disable、提示文字等 */
+
+  /* 背景色 */
+  --background-color: #f2f2f2; /* 窗口北京色 */
+  --background-color-main: #fff; /* 窗口北京色 */
+  --navigator-background-color: #fff; /* 顶部导航栏背景 */
+  --sider-menu-background-color: #fff; /* 侧边菜单栏背景 */
+
+  /* 边框 */
+  --border-color-1: #E6E6E6;  /* 用于分割线 */
+  --border-color-2: #DCDEE0;  /* 边框深 */
+  --border-color-3: #EBEDF0;  /* 边框浅 */
+
+  /* 阴影 */
+  --shadow-color-1: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark']:root {
+  /* 文本色 */
+  --text-color-1: #ffffff; /* 主要文字 */
+  --text-color-2: #ffffff; /* 重要文字，用于NavBar等大标题 */
+  --text-color-3: rgba(255,255,255,0.8); /* 普通文字，用于段落、表单标题、列表内容等 */
+  --text-color-4: rgba(255,255,255,0.6); /* 辅助文字，用于次要信息 */
+  --text-color-5: rgba(255,255,255,0.3); /* 一般文字，disable、提示文字等 */
+
+  /* 背景色 */
+  --background-color: #222; /* 窗口北京色 */
+  --background-color-main: #111; /* 窗口北京色 */
+  --navigator-background-color: #111; /* 顶部导航栏背景 */
+  --sider-menu-background-color: #111; /* 侧边菜单栏背景 */
+
+  /* 边框 */
+  --border-color-1: #3B3C3F;  /* 用于分割线 */
+  --border-color-2: #3F444C;  /* 边框深 */
+  --border-color-3: #2E3237;  /* 边框浅 */
+
+  /* 阴影 */
+  --shadow-color-1: rgba(255, 255, 255, 0.05);
+}
+
+
+#app {
+  width: 100%;
+  height: 100%;
+}
