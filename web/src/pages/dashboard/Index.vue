@@ -3,11 +3,12 @@
 </template>
 
 <script lang="ts" setup>
-import { useThemeStore } from '@/store/theme.store.ts'
-const themeStore = useThemeStore()
+import { useRoute } from 'vue-router';
+ 
+const route = useRoute();
 
 const changeTheme = () => {
-  themeStore.setColorPrimary("#f60")
+  console.log(route.query);
 }
 </script>
 

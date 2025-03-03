@@ -11,7 +11,7 @@ export default [{
       // hasNavBar: false, // 不展示顶部导航栏
     }
   }, {
-    path: "/dashboard:pid",
+    path: "/dashboard",
     name: "仪表盘",
     component: () => import("@/pages/dashboard/Index.vue"),
     meta: {}
@@ -21,12 +21,12 @@ export default [{
         标注任务
   *********************/
   {
-    path: "/annotation/labels:pid",
+    path: "/annotation/labels",
     name: "标签管理",
     component: () => import("@/pages/annotation/Labels.vue"),
     meta: {}
   }, {
-    path: "/annotation/tasks:pid",
+    path: "/annotation/tasks",
     name: "任务管理",
     component: () => import("@/pages/annotation/Tasks.vue"),
     meta: {}
@@ -36,7 +36,7 @@ export default [{
         用户管理
   *********************/
   {
-    path: "/user/index:pid",
+    path: "/user/index",
     name: "用户管理",
     component: () => import("@/pages/user/Index.vue"),
     meta: {}

@@ -3,7 +3,7 @@
     <!-- 非登录页 -->
     <div v-if="router.currentRoute.value.path !== '/login'" class="max-height">
       <a-layout class="max-height">
-        <a-layout-header class="navigator-bar" v-if="hasNavBar">
+        <a-layout-header class="navigator-bar" v-if="globalStore.hasNavBar">
           <a-row>
             <a-col :xs="24" :sm="24" :md="6" :lg="6" :xl="5" :xxl="4">
               <div class="logo">WATASI</div>
@@ -56,11 +56,11 @@
               :lg="6"
               :xl="5"
               :xxl="4"
-              v-if="hasMenu"
+              v-if="globalStore.hasMenu"
             >
               <a-layout-sider class="sider-menu" width="100%">
                 <a-menu
-                  v-model:selectedKeys="selectedKeys"
+                  v-model:selectedKeys="globalStore.activateMenuKey"
                   mode="inline"
                   class="items"
                   :items="menuItems"
@@ -71,10 +71,10 @@
             <a-col
               :xs="24"
               :sm="24"
-              :md="hasMenu ? 18 : 24"
-              :lg="hasMenu ? 18 : 24"
-              :xl="hasMenu ? 19 : 24"
-              :xxl="hasMenu ? 20 : 24"
+              :md="globalStore.hasMenu ? 18 : 24"
+              :lg="globalStore.hasMenu ? 18 : 24"
+              :xl="globalStore.hasMenu ? 19 : 24"
+              :xxl="globalStore.hasMenu ? 20 : 24"
             >
               <a-layout style="min-height: 100%;">
                 <a-layout-content style="padding: 24px;">
@@ -109,15 +109,9 @@ const router = useRouter()
 const themeStore = useThemeStore()
 const globalStore = useGlobalStore()
 
-// 是否显示顶部导航栏、侧边菜单栏
-const hasNavBar = ref(globalStore.hasNavBar)
-const hasMenu = ref(globalStore.hasMenu)
-
 const menuItems = reactive(items)
-const selectedKeys = ref<string[]>([router.currentRoute.value.path]);
 
 const handleClick: MenuProps['onClick'] = e => {
-  selectedKeys.value = [`${e.key}`]
   if(e.key === 'logout') {
     Modal.confirm({
       content: '确定退出登录吗？',
@@ -136,7 +130,7 @@ const handleClick: MenuProps['onClick'] = e => {
   } else if(typeof e.key === 'string' && e.key.indexOf('/mine') >= 0) {
     router.push(`${e.key}`)
   } else {
-    router.replace(`${e.key}`)
+    router.replace(`${e.key}?pid=${globalStore.projectItem?.id}`)
   }
 };
 </script>
